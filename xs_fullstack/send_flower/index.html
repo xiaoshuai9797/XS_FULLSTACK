@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //面对对象的编程
+        //JS 描述一下就来对象，对象字面量
+        class Flower{
+            constructor(type,nums){
+                this.type = type//类型
+                this.nums = nums
+
+
+            }
+        }
+        const xs = {//肖帅，对象
+            name:'肖帅',
+            hometown:'江西南昌',
+            isSingle:true,
+        }
+        //多金，单身，男主角
+        const wy = {
+            name:'吴优',
+            isSingle:true,
+            hometown:'江西南昌',
+            age:22,
+            sendFlower(target){
+                const flower = new Flower('红玫瑰',11);
+                // console.log(flower)
+                target.receiveFlower(flower,this)
+            }
+        }
+        //女主角，熊腾
+        // 送花
+        const xt = {
+            name:'熊腾',
+            xq:50,
+            receiveFlower(flower,sender){
+                if(this.xq<80){
+                    console.log(xt.name + '心情不好');
+                }else{
+                console.log(xt.name+'收到了' + sender.name + '送的' + flower.nums + '朵' + flower.type);
+                console.log('学府走一波');
+            }
+            }
+        }
+        //吴优的老乡
+        const zyh = {
+            name:'邹元昊',
+            hometown:'江西南昌',
+            //
+            receiveFlower(flower,sender){
+                //精准的控制
+                console.log('我帮你代送一下');
+                setTimeout(() =>{
+                    xt.xq = 90;
+                    xt.receiveFlower(flower,sender);
+                },2000)
+                
+                
+            }
+
+        }
+    </script>
+</body>
+</html>
